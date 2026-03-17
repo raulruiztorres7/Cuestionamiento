@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quieres quedarte a mi lado?</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 80px;
+}
+
+button {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#si {
+    background-color: green;
+    color: white;
+}
+
+#no {
+    background-color: red;
+    color: white;
+    position: absolute;
+}
+</style>
+</head>
+<body>
+
+<h1>¿Quieres quedarte a mi lado? ❤️</h1>
+
+<button id="si">Sí</button>
+<button id="no">No</button>
+
+<script>
+let size = 18;
+
+const botonSi = document.getElementById("si");
+const botonNo = document.getElementById("no");
+
+// Función que hace el efecto
+function escapar() {
+    size += 8;
+    botonSi.style.fontSize = size + "px";
+
+    let noSize = Math.max(10, size - 15);
+    botonNo.style.fontSize = noSize + "px";
+
+    botonNo.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    botonNo.style.left = Math.random() * (window.innerWidth - 50) + "px";
+}
+
+// Evento para celular (toque)
+botonNo.addEventListener("touchstart", escapar);
+
+// También sirve en PC
+botonNo.addEventListener("mouseover", escapar);
+
+botonSi.addEventListener("click", () => {
+    document.body.innerHTML = "<h1> Gracias por quedarte <3 😍</h1>";
+});
+</script>
+
+</body>
+</html>
